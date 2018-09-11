@@ -1,18 +1,22 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Selenium2Example  {
 	
-	public static String key = "webdriver.gecko.driver";
-	public static String path = "C:\\Dev\\SeleniumGeckoDriver\\geckodriver.exe";
+	public static String firefox_key = "webdriver.gecko.driver";
+	public static String firefox_driver_path = "C:\\Dev\\SeleniumGeckoDriver\\geckodriver.exe";
 	
-    public static void main(String[] args) {
+	public static String chrome_key = "webdriver.chrome.driver";
+	public static String chrome_driver_path = "C:\\Dev\\SeleniumChromeDriver\\chromedriver.exe";
+	
+  public static void testFirefox() {
     	
-    	System.setProperty(key, path);
+    	System.setProperty(firefox_key, firefox_driver_path);
         // Create a new instance of the Firefox driver
         // Notice that the remainder of the code relies on the interface, 
         // not the implementation.
@@ -49,4 +53,39 @@ public class Selenium2Example  {
         //Close the browser
         driver.quit();
     }
+  
+  	public static void testChrome() {
+  		
+  	  // Optional, if not specified, WebDriver will search your path for chromedriver.
+  	  System.setProperty(chrome_key, chrome_driver_path);
+
+  	  WebDriver driver = new ChromeDriver();
+  	  driver.get("http://www.google.com/xhtml");
+  	  try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}  // Let the user actually see something!
+  	  WebElement searchBox = driver.findElement(By.name("q"));
+  	  searchBox.sendKeys("ChromeDriver");
+  	  searchBox.submit();
+  	  try {
+		Thread.sleep(5000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}  // Let the user actually see something!
+  	  driver.quit();
+
+  		
+  	}
+  	
+  public static void main(String[] args) {
+	  Selenium2Example.testFirefox();
+	  Selenium2Example.testChrome();
+	  
+  }
+  
+    
 }
