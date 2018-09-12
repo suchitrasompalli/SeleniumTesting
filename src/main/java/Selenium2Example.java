@@ -14,7 +14,10 @@ public class Selenium2Example  {
 	public static String chrome_key = "webdriver.chrome.driver";
 	public static String chrome_driver_path = "C:\\Dev\\SeleniumChromeDriver\\chromedriver.exe";
 	
-  public static void testFirefox() {
+	 /* 
+     * Standard setup for testing firefox browser with webdriver.
+     */
+    public static void testFirefox() {
     	
     	System.setProperty(firefox_key, firefox_driver_path);
         // Create a new instance of the Firefox driver
@@ -54,6 +57,9 @@ public class Selenium2Example  {
         driver.quit();
     }
   
+    /* 
+     * Standard setup for testing chrome browser with webdriver.
+     */
   	public static void testChrome() {
   		
   	  // Optional, if not specified, WebDriver will search your path for chromedriver.

@@ -1,0 +1,4 @@
+firefox_key = webdriver.gecko.driver
+firefox_driver_path = C:\\Dev\\SeleniumGeckoDriver\\geckodriver.exe
+chrome_key = webdriver.chrome.driver
+chrome_driver_path = C:\\Dev\\SeleniumChromeDriver\\chromedriver.exe
